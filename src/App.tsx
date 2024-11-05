@@ -4,10 +4,11 @@ import './App.css'
 function App() {
   const [patient, setPatient] = useState('')
   const [appointmentTime, setAppointmentTime] = useState('')
+  const [reason, setReason] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', { patient, appointmentTime })
+    console.log('Form submitted:', { patient, appointmentTime, reason })
   }
 
   return (
@@ -33,6 +34,15 @@ function App() {
             onChange={(e) => setAppointmentTime(e.target.value)}
             required
           />
+        </div>
+        <div className="form-group">
+          <label htmlFor="reason">Asunto a Resolver:</label>
+          <textarea
+            id="reason"
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+            required
+          ></textarea>
         </div>
         <button type="submit" className="button">
           Agendar Cita
